@@ -1,0 +1,130 @@
+/* Font și resetări */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.chat-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+  width: 90%;
+  max-width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-box {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  font-size: 1rem;
+}
+
+.chat-input button {
+  background: #66fcf1;
+  color: #000;
+  border: none;
+  padding: 0 1.2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.chat-input button:hover {
+  background: #45a29e;
+}
+
+/* Mesaje */
+.message {
+  padding: 10px 15px;
+  border-radius: 12px;
+  max-width: 80%;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.user {
+  align-self: flex-end;
+  background: #66fcf1;
+  color: #000;
+}
+
+.bot {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animații */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar personalizat pentru Chrome, Edge, Safari */
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #66fcf1, #1f2833);
+  border-radius: 10px;
+  box-shadow: 0 0 5px #66fcf1;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #45a29e, #0b0c10);
+}
+
+/* Scrollbar fallback pentru Firefox */
+.chat-box {
+  scrollbar-width: thin;
+  scrollbar-color: #66fcf1 rgba(255, 255, 255, 0.05);
+}

@@ -25,45 +25,46 @@ function sendMessage() {
   const userMsg = input.value.trim();
   if (!userMsg) return;
 
-  addMessage("user", userMsg);
-  input.value = "";
+  addMessage('user', userMsg);
+  input.value= '';
 
-  setTimeout(() => {
+  setTimeout(()=>{
+
     const msg = userMsg.toLowerCase();
     const reply = responses[msg] || "Încă nu știu cum să răspund la asta... 😅";
 
-    // Adaugă container gol pentru mesajul botului
-    const botMsg = document.createElement("div");
-    botMsg.classList.add("message", "bot");
-    chatBox.appendChild(botMsg);
+    const botMsg = document.createElement('div');
+    botMsg.classList.add("message", 'bot'); 
+    chatBox.appendChild(botMsg)
     chatBox.scrollTop = chatBox.scrollHeight;
 
-    // Efect tastare
-    typeText(botMsg, reply, 30);
-  }, 600);
+    typeText(botMsg, reply, 30)
+
+  }, 600)
+
 }
 
-function addMessage(sender, text) {
-  const msg = document.createElement("div");
-  msg.classList.add("message", sender);
-  msg.textContent = text;
-  chatBox.appendChild(msg);
-  chatBox.scrollTop = chatBox.scrollHeight;
+function addMessage(sender, text){
+  const msg = document.createElement('div')
+  msg.classList.add('message', sender)
+  msg.textContent = text
+  chatBox.appendChild(msg)
+  chatBox.scrollTop = chatBox.scrollHeight
 }
 
-function typeText(element, text, speed) {
+function typeText(element,text, speed){
   let i = 0;
-  let displayed = "";
+  let displayed = ''
 
-  function typing() {
-    if (i < text.length) {
-      const char = text.charAt(i);
-      displayed += char === "\n" ? "<br>" : char;
-      element.innerHTML = displayed;
-      i++;
-      chatBox.scrollTop = chatBox.scrollHeight;
-      setTimeout(typing, speed);
+  function typing(){
+    if(i < text.length){
+      const char = text.charAt(i)
+      displayed += char === '\n' ? "<br>" : char
+      element.innerHTML = displayed
+      i++
+      chatBox.scrollTop = chatBox.scrollHeight
+      setTimeout(typing, speed)
     }
   }
-  typing();
+  typing()
 }
